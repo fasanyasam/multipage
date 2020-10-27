@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<br><br>
-<form class="container col-4">
+<head>
+  <title> Django.NG | Login </title>
+</head>
+
+<main>
+<form method="POST" class=" m-auto col-4 ">
     <div class="form-group " >
-        <h3>Sample Login Page </h3>
+        <h3 class="text-primary text-center" > Django.Ng </h3>
+        <h6 class="text-center" > Login page </h6>
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       <small id="emailHelp" class="form-text text-muted">
@@ -14,11 +19,52 @@
     </div>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <label class="form-check-label" for="exampleCheck1">Keep me signed in </label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    {% csrf_token %}
+    <button type="submit" value="Submit" class="btn btn-primary " href="{% url 'home' %}" >Submit</button>
   </form>
+</main>
+
+<style>
+  main{
+    height: 80vh;
+    background-color: mintcream;
+    padding-top: 60px;
+  }
+  form{
+    
+    background-color: rgb(240, 240, 240);
+    border: none rgb(25, 14, 172);
+    padding: 40px  ;
+    box-shadow: rgb(0, 100, 231) 4px 6px ;
+  }
+  footer{
+    margin-top: -4px;
+  }
 
 
+  @media screen and (max-width:500px) {
+    h3{
+      font-size: 1em;
+    }
+    h6, label{
+      font-size: .6em;
+    }
+    .form-control, .btn{
+      height: 20px;
+      width: 97%;
+    }
+    .btn {
+      font-size: .6em;
+    }
+    input{
+      height: 6px;
+      width:6px
+    }
+
+    
+  }
+</style>
 
 {% endblock content %}
